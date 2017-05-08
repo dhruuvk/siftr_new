@@ -2,13 +2,36 @@
 <html>
   <head>
     <title>Siftr</title>
-    <%# csrf_meta_tags %>
+    <% csrf_meta_tags %>
 
-    <%# stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%# javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <% stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <% javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+  	<div id="wrapper">
+    
+    <header>
+    	<%= link_to image_tag("siftr_logo.png", alt: "New Think Tank"), 
+    		{:controller =>'pages', :action => 'home'},
+    		{:class => 'websiteLogo'} %>
+
+    	<%= link_to 'Siftr', {:controller =>'pages', :action => 'home'}, {:class => 'websiteTitle'} %>
+    </header>
+
+    <nav id="horzNAv">
+    <p>
+    	<%= link_to 'Home', {:controller =>'pages', :action => 'home'} %>
+
+    	<%= link_to 'About', {:controller =>'pages', :action => 'about'} %>
+
+    	<%= link_to 'Posts', {:controller =>'posts', :action => 'index'} %>
+
+    	<%= link_to 'users', {:controller =>'users', :action => 'index'} %>
+    </p>
+
     <%= yield %>
+  	
+  	</div>
   </body>
 </html>
